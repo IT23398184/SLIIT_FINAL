@@ -1,9 +1,9 @@
 package com.victorp.service;
 
-import com.victorp.model.Client;
+import com.victorp.model.Client;  // Importing the Client model class
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import java.util.List; // Importing List class for handling collections of Client objects
 
 public interface ClientService {
 
