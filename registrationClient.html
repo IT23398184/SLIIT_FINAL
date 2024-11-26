@@ -20,7 +20,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-2">
-                    <div id="colorlib-logo"><a href="/index">FitnessCamp</a></div>
+                    <div id="colorlib-logo"><a href="/index">KDF FitnessCamp</a></div>
                 </div>
                 <div class="col-md-10 text-right menu-1">
                     <ul>
@@ -28,21 +28,15 @@
                         <li class="has-dropdown">
                             <a href="/classes">Groups</a>
                             <ul class="dropdown">
-                                <li><a href="/classes-single">Individual Lessons</a></li>
-                                <li><a href="#">Cross-fit Group</a></li>
-                                <li><a href="#">Boxing Group</a></li>
-                                <li><a href="#">Fitness Group</a></li>
-                                <li><a href="#">Body-building</a></li>
-                                <li><a href="#">Power Extreme</a></li>
-                                <li><a href="#">Yoga</a></li>
-                                <li><a href="#">Step Aerobics</a></li>
+                                <li><a href="/classes-single">Message</a></li>
+                               
                             </ul>
                         </li>
                         <li><a href="/schedule">Schedule</a></li>
                         <li><a href="/about">Trainers</a></li>
                         <li><a href="/event">Events</a></li>
                         <li><a href="/blog">Blog</a></li>
-                        <li><a href="/contact">Contacts</a></li>
+                       
 
                         <li sec:authorize="hasAuthority('ROLE_TRAINER')"><a href="/trainerPage">Trainer</a></li>
                         <li sec:authorize="hasAuthority('ROLE_ADMIN')"><a href="/administration">Administrator</a></li>
