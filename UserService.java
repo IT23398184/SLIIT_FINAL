@@ -9,10 +9,11 @@ import java.util.List;
 import java.util.Optional;
 
 public interface UserService {
+    // Interface defining the service layer for User operations
     User getById(Long id) throws Exception;
-
+ // Fetches a User by their unique ID, throws an exception if not found
     List<User> getAll() throws Exception;
-
+// Retrieves a list of all Users, throws an exception if operation fails
     User getByUsername(String username) throws Exception;
 
     User checkUser(String login);
