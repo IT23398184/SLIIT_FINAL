@@ -2,6 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <head>
+        <!-- Metadata for page setup -->
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>FitnessCamp</title>
@@ -21,33 +22,23 @@
         <meta name="twitter:url" content=""/>
         <meta name="twitter:card" content=""/>
 
+        <!-- Importing Google Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,700,900" rel="stylesheet">
 
-        <!-- Animate.css -->
+        
+        <!-- Importing stylesheets -->
         <link rel="stylesheet" href="css/animate.css">
-        <!-- Icomoon Icon Fonts-->
         <link rel="stylesheet" href="css/icomoon.css">
-        <!-- Bootstrap  -->
         <link rel="stylesheet" href="css/bootstrap.css">
-
-        <!-- Magnific Popup -->
         <link rel="stylesheet" href="css/magnific-popup.css">
-
-        <!-- Flexslider  -->
         <link rel="stylesheet" href="css/flexslider.css">
-
-        <!-- Owl Carousel -->
         <link rel="stylesheet" href="css/owl.carousel.min.css">
         <link rel="stylesheet" href="css/owl.theme.default.min.css">
-
-        <!-- Flaticons  -->
         <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
-
-        <!-- Theme style  -->
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/table_blur.css">
 
-        <!-- Modernizr JS -->
+        <!-- Modernizr for browser feature detection -->
         <script src="js/modernizr-2.6.2.min.js"></script>
         <!-- FOR IE9 below -->
         <!--[if lt IE 9]>
@@ -57,16 +48,20 @@
     </head>
 <body>
 
+ <!-- Loader to indicate page loading -->   
 <div class="colorlib-loader"></div>
 
 <div id="page">
+    <!-- Navigation bar -->
     <nav class="colorlib-nav" role="navigation">
         <div class="top-menu">
             <div class="container">
                 <div class="row">
+                    <!-- Logo -->
                     <div class="col-md-2">
                         <div id="colorlib-logo"><a href="index">KDF FitnessCamp</a></div>
                     </div>
+                    <!-- Menu items -->
                     <div class="col-md-10 text-right menu-1">
                         <ul>
                             <li class="active"><a href="index">Home</a></li>
@@ -82,13 +77,9 @@
                             <li><a href="/event">Events</a></li>
                             <li><a href="/blog">Blog</a></li>
 
-
+                            <!-- Role-based navigation items -->
                             <li sec:authorize="hasAuthority('ROLE_TRAINER')"><a href="/trainerPage">Coaching</a></li>
-
-
                             <li sec:authorize="hasAuthority('ROLE_ADMIN')"><a href="/administration">Administration</a></li>
-
-
                             <li sec:authorize="isAnonymous()"><a href="/registration">Register</a></h4></li>
                             <li sec:authorize="isAuthenticated()"><a href="/logout"></a>Log out</li>
                             <li sec:authorize="isAnonymous()"><a href="/login"></a>Log In</li>
@@ -99,6 +90,7 @@
             </div>
         </div>
     </nav>
+    <!-- Hero section -->
     <aside id="colorlib-hero">
         <div class="flexslider">
             <ul class="slides">
@@ -118,6 +110,7 @@
             </ul>
         </div>
     </aside>
+    <!-- Subscription and search section -->
     <div id="colorlib-subscribe1" class="subs-img" style="white-space: normal;" data-stellar-background-ratio="0.5">
         <div class="overlay"></div>
 
@@ -127,7 +120,7 @@
                     <input id="txtSearch" style="margin:20px auto;width:50%;padding:6px;border-radius:5px" type="text" name="keyword">
                     <button type="submit">Find</button>
                 </form>
-
+ <!-- Client list table -->
                 <table id="usersList" style="width:90%;margin:0 auto" class="table_blur" aria-label="Client List">
                     <thead>
                     <tr>
@@ -137,6 +130,7 @@
                     </tr>
                     </thead>
                     <tbody>
+                        <!-- Iterate over client list -->
                     <tr th:each="client : ${allClients}">
                         <td th:text="${client.id}"></td>
                         <td th:text="${client.username}"></td>
@@ -184,6 +178,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- Footer -->
                 <footer id="colorlib-footer">
                     <div class="container">
                         <div class="row row-pb-md">
