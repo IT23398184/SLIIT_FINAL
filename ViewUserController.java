@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
+// Controller class for managing user-related views
 @RequestMapping(path = "/clientsView")
 @Controller
 public class ViewUserController {
@@ -64,7 +65,7 @@ public class ViewUserController {
                                 @RequestParam("sortField") String sortField,
                                 @RequestParam("sortDir") String sortDir,
                                 Model model) {
-        int pageSize = 5;
+        int pageSize = 5; // Fixed number of items per page
 
         Page<User> page = userService.findPaginated(pageNo, pageSize, sortField, sortDir);
         List<User> listUsers = page.getContent();
@@ -77,7 +78,7 @@ public class ViewUserController {
         model.addAttribute("sortDir", sortDir);
         model.addAttribute("reverseSortDir", sortDir.equals("asc") ? "desc" : "asc");
 
-
+            // Add the list of users to the model
         model.addAttribute("allUsers", listUsers);
         return "clientsView";
     }
