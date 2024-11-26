@@ -21,9 +21,9 @@ public class User implements UserDetails{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotNull
-    @NotEmpty
-    @Size(min=4, max=20)
+    @NotNull// Ensures the field cannot be null
+    @NotEmpty// Ensures the field is not empty
+    @Size(min=4, max=20) // Validates string length`
     @Column(name = "username", nullable = false, length = 50, unique = true)
     private String username;
 
@@ -36,6 +36,7 @@ public class User implements UserDetails{
     @Transient
     private String passwordConfirm;
 
+    // Optional field for storing user's name
     @Column(name = "first_name")
     private String firstName;
 
@@ -45,9 +46,9 @@ public class User implements UserDetails{
     @Column(name = "birthdate")
     private String birthdate;
 
-    @NotEmpty
-    @Email
-    @Column(name = "email")
+    @NotEmpty // Email must not be empty
+    @Email// Validates correct email format
+    @Column(name = "email")// Consider setting a length constraint
     private String email;
 
     @Column(name = "groupFitness")
@@ -66,7 +67,7 @@ public class User implements UserDetails{
     @OneToOne(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     private Admin admin;
 
-
+// Default constructor for JPA
     public User() {
     }
 
@@ -104,7 +105,7 @@ public class User implements UserDetails{
     public void setAdmin(Admin admin) {
         this.admin = admin;
     }
-
+// Parameterized constructor for convenience
     public User(String username, String password, String firstName, String lastName, String birthdate, String email, String group) {
         this.username = username;
         this.password = password;
